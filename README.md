@@ -82,7 +82,7 @@ Welcome to the Medication Management System's home page! This is the entry point
 
 ## Usage
 
-Simply open the `index.html` file in a web browser to access the home page. From there, you can navigate to the Medication Scheduler or explore example medications.
+Simply open the `med.html` file in a web browser to access the home page. From there, you can navigate to the Medication Scheduler or explore example medications.
 
 ## Additional Notes
 
