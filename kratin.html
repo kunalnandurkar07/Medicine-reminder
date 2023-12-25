@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medication Scheduler</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"> 
+</head>
+
+<body>
+    <header>
+        <h1>Medication Scheduler</h1>
+    </header>
+
+    <main>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMnUUgPFbp2kI5b8hK7OTBzn07ZzEHI0ZgRQ&usqp=CAU"
+            alt="Medication Image" style="max-width: 100%;">
+        <h2>Add Medication</h2>
+        <br>
+        <form id="medicationForm">
+            <label for="medicationName">Medication Name:</label>
+            <input type="text" id="medicationName" name="medicationName" required>
+
+            <label for="dosage">Dosage:</label>
+            <input type="text" id="dosage" name="dosage" required>
+
+            <label for="schedule">Schedule Time:</label>
+            <input type="time" id="schedule" name="schedule" required>
+
+            <!-- Placeholder for additional features -->
+            <label for="scheduleType">Schedule Type:</label>
+            <select id="scheduleType" name="scheduleType">
+                <option value="onceADay">Once a Day</option>
+                <option value="twiceADay">Twice a Day</option>
+                <option value="customInterval">Custom Interval Based</option>
+                <!-- Add more options based on your needs -->
+            </select>
+
+            <label for="scheduleInterval">Custom Interval:</label>
+            <input type="number" id="scheduleInterval" name="scheduleInterval" min="1">
+
+            <label for="numberOfDays">Number of Days:</label>
+            <input type="number" id="numberOfDays" name="numberOfDays" min="1">
+
+            <label for="specificDays">Specific Days:</label>
+            <input type="text" id="specificDays" name="specificDays">
+
+            <button type="button" onclick="addMedication()">Add Medication</button>
+        </form>
+
+        <div id="medicationList">
+            <h2>Medications</h2>
+            <ul id="medicationItems"></ul>
+        </div>
+
+      
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Medication Scheduler</p>
+    </footer>
+
+    <script>
+        // Placeholder for scheduleReminder function
+        function scheduleReminder(time, type, interval, days) {
+            // Implementation of reminders based on the provided parameters
+            // You may need to modify this based on your backend logic
+            console.log('Reminder Scheduled:');
+            console.log('Medication Time:', time);
+            console.log('Schedule Type:', type);
+            console.log('Custom Interval:', interval);
+            console.log('Number of Days:', days);
+        }
+
+        // Placeholder for addMedication function
+        function addMedication() {
+            const medicationName = document.getElementById('medicationName').value;
+            const dosage = document.getElementById('dosage').value;
+            const schedule = document.getElementById('schedule').value;
+            const scheduleType = document.getElementById('scheduleType').value;
+            const scheduleInterval = document.getElementById('scheduleInterval').value;
+            const numberOfDays = document.getElementById('numberOfDays').value;
+            const specificDays = document.getElementById('specificDays').value;
+
+            // Implement additional logic based on the selected schedule type and parameters
+
+            if (medicationName && dosage && schedule) {
+                const medicationList = document.getElementById('medicationItems');
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <strong>${medicationName}</strong><br>
+                    Dosage: ${dosage}<br>
+                    Schedule: ${schedule}<br>
+                    Schedule Type: ${scheduleType}<br>
+                    Custom Interval: ${scheduleInterval || 'N/A'}<br>
+                    Number of Days: ${numberOfDays || 'N/A'}<br>
+                    Specific Days: ${specificDays || 'N/A'}
+                `;
+                medicationList.appendChild(listItem);
+
+                // Set up a reminder for the scheduled time (this is a simplified example)
+                scheduleReminder(schedule, scheduleType, scheduleInterval, specificDays);
+
+                // Clear the form
+                document.getElementById('medicationForm').reset();
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+    </script>
+</body>
+
+</html>
